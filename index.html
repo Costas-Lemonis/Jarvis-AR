@@ -1,27 +1,78 @@
 <!DOCTYPE html>
 <html lang="el">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jar.vis | Καλωσήρθατε</title>
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     <style>
+        @font-face {
+            font-family: 'Kreadon';
+            src: url('./assets/fonts/Kreadon-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Kreadon';
+            src: url('./assets/fonts/Kreadon-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Kreadon', sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #F4F2EE;
         }
+
         .container {
             margin-top: 50px;
             padding: 20px;
+            position: relative; /* Για να μπορέσουμε να τοποθετήσουμε τα background images */
         }
+
+        .background-image-1 {
+            background-image: url('./assets/images/image1.png');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1; /* Μειώνει τη φωτεινότητα της εικόνας */
+            z-index: -1; /* Βάζει την εικόνα πίσω από το περιεχόμενο */
+        }
+
+        .background-image-2 {
+            background-image: url('./assets/images/image2.png');
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        h1 {
+            color: #282626;
+        }
+
+        p {
+            color: #007BFF;
+        }
+
         .logo {
-            width: 100px;
+            width: 180px;
             max-width: 80%;
             margin-bottom: 20px;
         }
+
         .btn {
             display: block;
             width: 80%;
@@ -29,22 +80,25 @@
             padding: 15px;
             margin: 15px auto;
             text-decoration: none;
-            background-color: #007BFF;
+            background-color: #282626;
             color: white;
             border-radius: 15px;
             font-size: 20px;
             font-weight: bold;
             transition: 0.3s;
         }
+
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #3B3838;
         }
+
         .footer {
             margin-top: 50px;
             font-size: 14px;
             color: #666;
             padding: 10px;
         }
+
         @media (max-width: 768px) {
             .btn {
                 font-size: 18px;
@@ -53,20 +107,25 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <img src="./assets/images/jarvis_icon.png" alt="Ja.rvis Logo" class="logo">
+        <div class="background-image-1"></div>
+        <div class="background-image-2"></div>
+        <img src="./assets/images/jarvis_hor_logo.png" alt="Ja.rvis Logo" class="logo">
         <h1>Καλωσήρθατε στο Ja.rvis</h1>
-        <p>Ο έξυπνος τρόπος για να διαχειρίζεστε τα βάζα σας!</p>
+        <p>Ο σύμμαχός σου στην οργάνωση!</p>
 
-        <a href="pages/info.html" class="btn">📌 Πληροφορίες</a>
-        <a href="pages/ar.html" class="btn">🕶️ Δοκιμάστε το AR</a>
-        <a href="pages/app.html" class="btn">📱 Δείτε την εφαρμογή</a>
-        <a href="pages/afisa.html" class="btn">🖼️ Αφίσα</a>
+        <a href="./pages/info.html" class="btn">📌 Πληροφορίες</a>
+        <a href="./pages/ar.html" class="btn">🕶️ Δοκιμάστε το AR</a>
+        <a href="./pages/app.html" class="btn">📱 Δείτε την εφαρμογή</a>
+        <a href="./assets/jarvis_poster.pdf" class="btn">🖼️ Αφίσα</a>
+        <a href="https://www.youtube.com/watch?v=OG4f6p9Ba54" class="btn">🎥 Video</a>
     </div>
-    
+
     <div class="footer">
         <p>Studio 7A | Jar.vis</p>
     </div>
 </body>
+
 </html>
