@@ -52,18 +52,16 @@
         </a-marker>
 
         <a-marker id="hydrogenmarker" type="barcode" value="39">
-            <a-image id="hydrocard" src="assets/card-H.png" rotation="-90 0 0"
-                geometry="width: 2.3; height: 2.3"></a-image>
-            <a-entity id="Hydroatom" position="0 1.5 0" rotation="0 0 0" scale="0.3 0.3 0.3" gltf-model="#Hatom"
-                animation__rotate="property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
-                visible="true">
-            </a-entity>
-            <!--H2O Marker-->
-            <a-image id="H2Ocard" src="assets/card-H2O.png" rotation="-90 0 0"
-                geometry="width: 2.3; height: 2.3"></a-image>
-            <a-entity id="H2Oatom" position="0 1.5 0" rotation="0 0 0" scale="0.3 0.3 0.3" gltf-model="#H2O"
-                animation__rotate="property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
-                visible="false">
+            <a-entity id="box" geometry="primitive: box; width: 0.9; depth: 0.9; height: 0.9" position="0 0 0"
+                material="color: #083D77"></a-entity>
+            <a-entity id="cylinder" geometry="primitive: cylinder; height: 2; radius: 0.5" position="1 0 -1"
+                material="color: #F4D35E"></a-entity>
+            <a-entity id="sphere" geometry="primitive: sphere; radius: 0.5" position="-1 0 -1"
+                material="color: #F95738"></a-entity>
+            <a-entity id="annyang" annyang-speech-recognition></a-entity>
+            <a-entity id="links" position="0 2.25 -15" particle-system="preset: snow" visible="false"
+                speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
+                speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
             </a-entity>
         </a-marker>
 
