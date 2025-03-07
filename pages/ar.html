@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jar.vis | AR βάζο</title>
     <link rel="icon" type="image/png" href="./assets/images/favicon.png">
     <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>-->
     <script src="build/aframe-ar.js"></script>
-
-
 </head>
-
 <body style="margin : 0px; overflow: hidden;">
-
-
 
     <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded
         arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-
-        <a-marker id="jarvisar" type="barcode" value="39">
-            <!-- Προσθήκη του 3D μοντέλου -->
-            <a-entity 
-                gltf-model="./assets/models/jar_ar.glb" 
-                scale="20 20 20"
-                position="0 0 0">
-            </a-entity>
+        
+        <a-marker class="jarvisar" type="barcode" value="39">
+            <a-entity class="modelsContainer"></a-entity>
         </a-marker>
 
+        <a-marker class="jarvisar" type="barcode" value="39">
+            <a-entity class="modelsContainer"></a-entity>
+        </a-marker>
 
         <a-entity camera></a-entity>
 
     </a-scene>
-</body>
 
+    <script>
+        document.querySelectorAll(".jarvisar").forEach((marker, index) => {
+            let modelsContainer = marker.querySelector(".modelsContainer");
+
+            marker.addEventListener("markerFound", () => {
+                console.log(`Barcode 39 #${index + 1} detected!`);
+
+                let newModel = document.createElement("a-entity");
+                newModel.setAttribute("gltf-model", "./assets/models/jar_ar.glb");
+                newModel.setAttribute("scale", "20 20 20");
+                newModel.setAttribute("position", "0 0 0");
+
+                modelsContainer.appendChild(newModel);
+            });
+
+            marker.addEventListener("markerLost", () => {
+                console.log(`Barcode 39 #${index + 1} lost!`);
+                modelsContainer.innerHTML = ""; // Καθαρισμός αν χαθεί το barcode
+            });
+        });
+    </script>
+
+</body>
 </html>
